@@ -7,7 +7,7 @@ export default dataID => {
 
   const loadBoundaryDetail = async () => {
     try {
-      const requestdata = await axios.get(`https://eic.mn/spa/app_spaboundary.php?basic_id=${dataID}`)
+      const requestdata = await axios.get(`https://eic.mn/flora/plantname.php?species_id=${dataID}`)
       setBoundaryDetail(requestdata.data.result)
     } catch(err) {
       setErrorMessage(err.message)

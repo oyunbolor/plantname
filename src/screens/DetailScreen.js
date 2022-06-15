@@ -26,17 +26,16 @@ const DetailScreen = props => {
 
     const renderItem = ({ item }) => (
         <View>
-            <Image style={styles.itemImage} source={{ uri: `https://eic.mn/cgi-bin/mapserver?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=spadb_spaspa%2Cspadb_npspa%2Cspadb_nrspa%2Cspadb_nhmspa&MAP=%2Fvar%2Fwww%2Fhtml%2Fspa%2Fspainfo%2Fmaps%2Fspa.map&SRS=EPSG%3A32648&STYLES=&MAP_RESOLUTION=180&WIDTH=800&HEIGHT=640&BBOX=${item.xmin}%2C${item.ymin}%2C${item.xmax}%2C${item.ymax}` }} />
-            <Text style={styles.itemText3}>{item.place_name}</Text>
+             <Text style={styles.itemText3}>{item.species_name}</Text>
         </View>
     );
     
     return (
         <SafeAreaView style={styles.container1}>
             {datadetail.map(el => (
-            <ScrollView key={el.basic_id} style={styles.container2}>
-                <Text style={styles.titleText1}>{el.spa_name}</Text>
-                <Text style={styles.titleText2}>{el.type_name_mn}</Text>
+            <ScrollView key={el.species_id} style={styles.container2}>
+                <Text style={styles.titleText1}>{el.species_name_mn}</Text>
+                <Text style={styles.titleText2}>{el.species_name_ru}</Text>
                 <FlatList 
                     horizontal
                     showsHorizontalScrollIndicator={false}
@@ -45,28 +44,7 @@ const DetailScreen = props => {
                     renderItem={renderItem}
                 />
                 <Text style={styles.itemText1}>Хамгаалалтанд авсан огноо:</Text>
-                <Text style={styles.itemText2}>{el.taken_date}</Text>
-                <Text style={styles.itemText1}>Хамгаалалтанд авсан тогтоол, шийдвэрийн дугаар:</Text>
-                <Text style={styles.itemText2}>{el.taken_decree}</Text>
-                <Text style={styles.itemText1}>Газарзүйн байрлал:</Text>
-                <Text style={styles.itemText2}>{el.place_name}</Text>
-                <Text style={styles.itemText1}>Засаг захиргааны хуваарь:</Text>
-                <Text style={styles.itemText2}>{el.location_name}</Text>
-                <Text style={styles.itemText1}>Талбайн хэмжээ, га:</Text>
-                <Text style={styles.itemText2}>{el.location_area}</Text>
-                <Text style={styles.itemText1}>Хамгаалалтанд авсан үндэслэл:</Text>
-                <Text style={styles.itemText2}>{el.purpose}</Text>
-                <Text style={styles.itemText1}>Дэлхийн унаган байгаль, соёлын өв газар:</Text>
-                <Text style={styles.itemText2}>{checkElement(el.site_wh)}</Text>
-                <Text style={styles.itemText1}>Хүн ба Шим мандлын нөөц газар:</Text>
-                <Text style={styles.itemText2}>{checkElement(el.siteMab)}</Text>
-                <Text style={styles.itemText1}>Рамсарын конвенцид бүртгэгдсэн газар:</Text>
-                <Text style={styles.itemText2}>{checkElement(el.siteRc)}</Text>
-                <Text style={styles.itemText1}>Хил дамнасан ТХГН:</Text>
-                <Text style={styles.itemText2}>{checkElement(el.siteBp)}</Text>
-                <Text style={styles.itemText1}>Байгаль, газарзүйн онцлог:</Text>
-                <Text style={styles.itemText2}>{el.description}</Text>
-                <Button onPress={() => Linking.openURL('https://eic.mn/spa/spa.php?action=more&basic_id='+el.basic_id)} title='Дэлгэрэнгүй мэдээлэл харах' />
+                <Text style={styles.itemText2}>{el.species_name_mn}</Text>
                 <Separator />
             </ScrollView>
             ))}

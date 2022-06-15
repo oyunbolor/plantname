@@ -7,9 +7,9 @@ import Spinner from '../components/Spinner'
 
 const DataList = ({ searchTextValue, searchTypeValue }) => {
 
-    const [spadatalist, errorMessage, loading] = useDataList()
-    const filteredTypeList = spadatalist.filter(el => el.spa_type.includes(searchTypeValue))
-    const filteredDataList = filteredTypeList.filter(el => el.spa_name.toLowerCase().includes(searchTextValue.toLowerCase()))
+    const [floradatalist, errorMessage, loading] = useDataList()
+    const filteredTypeList = floradatalist.filter(el => el.type_code.includes(searchTypeValue))
+    const filteredDataList = filteredTypeList.filter(el => el.species_name.toLowerCase().includes(searchTextValue.toLowerCase()))
 
     return (
         <View style={styles.container}>
@@ -21,7 +21,7 @@ const DataList = ({ searchTextValue, searchTypeValue }) => {
                     removeClippedSubviews
                     data={filteredDataList}
                     renderItem={({ item }) => <DataThumbnail data={item} />} 
-                    keyExtractor={item => item.basic_id}
+                    keyExtractor={item => item.species_id}
                 />
             )}
         </View>

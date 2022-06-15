@@ -5,19 +5,21 @@ import SearchText from '../components/SearchText'
 import DataList from '../components/DataList'
 
 const HomeScreen = () => {
-    const spatype = [
-        {id: "", title: 'Бүх газар'},
-        {id: "1", title: 'Дархан цаазат газар'},
-        {id: "2", title: 'Байгалийн цогцолборт газар'},
-        {id: "3", title: 'Байгалийн нөөц газар'},
-        {id: "4", title: 'Дурсгалт  газар'}
+    const floratype = [
+        {id: "", title: 'Бүх ургамал'},
+        {id: "1", title: 'Цоргот ургамал'},
+        {id: "2", title: 'Мөөг'},
+        {id: "3", title: 'Замаг'},
+        {id: "4", title: 'Хөвд'},
+        {id: "5", title: 'Хаг'}
     ];
     
     const renderItem = ({ item }) => (
         <View>
             <TouchableWithoutFeedback onPress={()=>setLocalSearchType(`${item.id}`)}> 
                 <Text style = {styles.searchButton}>
-                    {item.title}
+                    {item.title}-
+                    {floratype.length}
                 </Text>
             </TouchableWithoutFeedback >
         </View>
@@ -37,8 +39,8 @@ const HomeScreen = () => {
                     <FlatList 
                         horizontal
                         showsHorizontalScrollIndicator={false}
-                        keyExtractor={spatype => spatype.id}
-                        data={spatype}
+                        keyExtractor={floratype => floratype.id}
+                        data={floratype}
                         renderItem={renderItem}
                     />
                 </View>
@@ -77,4 +79,10 @@ const styles = StyleSheet.create({
         marginRight: 5,
         marginTop: 5,
     },
+    paragraph: {
+        margin: 10,
+        fontSize: 10,
+        fontWeight: 'bold',
+        textAlign: 'center',
+      },
 })

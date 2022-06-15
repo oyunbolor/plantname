@@ -7,11 +7,11 @@ const DataThumbnail = ({data}) => {
   const navigation =useNavigation();
 
   return (
-    <TouchableOpacity onPress={()=>navigation.navigate("Detail", {dataid: data.basic_id})}>
+    <TouchableOpacity onPress={()=>navigation.navigate("Detail", {dataid: data.species_id})}>
       <View style={styles.container}>
-        <Text style={styles.titleText}>{data.spa_name}</Text>
-        <Text>{data.type_name_mn}</Text>
-        <Text>{data.taken_date}</Text>
+        <Text style={styles.titleText}>{data.species_name_mn}</Text>
+        <Text>{data.kingdom_name_mn}</Text>
+        <Text>{data.species_name}</Text>
       </View>
     </TouchableOpacity>
   )

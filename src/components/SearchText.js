@@ -9,7 +9,7 @@ const SearchText = ({ value, onValueChange, onFinishEnter }) => {
     return (
         <View style={styles.searchPanel}>
             <Feather style={styles.searchIcon} name="search" />
-            <TextInput value={value} onChangeText={onValueChange} style={styles.searchText} placeholder="ТХГН-ийн нэрээр хайх" placeholderTextColor="#a6a6a6" autoCapitalize="none" autoCorrect={false} onEndEditing={onFinishEnter} />
+            <TextInput value={value} onChangeText={onValueChange} style={styles.searchText} placeholder="Ургамлын зүйлийн нэр" placeholderTextColor="#a6a6a6" autoCapitalize="none" autoCorrect={false} onEndEditing={onFinishEnter} />
         </View>
     )
 }

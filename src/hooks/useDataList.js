@@ -8,7 +8,7 @@ export default () => {
 
   useEffect(() => {
     setLoading(true)
-    axios.get(`https://eic.mn/spa/app_spabasic.php`)
+    axios.get(`https://eic.mn/flora/plantname.php`)
     .then(result => {
       //console.log('Сангаас мэдээллийг амжилттай хүлээж авлаа...')
       setDataList(result.data.result)
